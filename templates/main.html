@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <h1 class="text_suka">
+        Это калькулятор ок да!
+    </h1>
+    <div>
+        <form method="POST" action="/">
+            <p class="text_suka">Первое число:</p>
+            <input type="text" id="first_num" name="first_num" step="any">
+            <p class="text_suka">Второе число:</p>
+            <input type="number" id="second_num" name="second_num" step="any">
+            <p class="text_suka">Действие:</p>
+            <input type="text" id="action" name="action">
+            <br>
+            <br>
+            <button class="btn" type="submit" onclick="calculate()">Тыкни для результата</button>           
+        </form>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <button class="btn"><a href="/calc">Все записи</a></button>
+    <script src="{{url_for('static', filename='calc.js')}}"></script>
+</body>
+</html>
