@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    background: rgb(0,61,255);
+background: radial-gradient(circle, rgba(0,61,255,1) 0%, rgba(255,105,242,1) 0%, rgba(0,117,255,1) 100%);
+}
+
+.text_suka {
+   font-size: 30px;
+   color: white; 
+   font-family: 'Courier New', Courier, monospace; 
+}
+.btn{
+    font-size: 20px;
+    background-color: #8200d8; /* Green */
+    color: white;
+    border: 1px solid white;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+input {
+    font-size: 20px;
+    background-color: rgb(204, 0, 223);
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+a:visited {
+    color: white; /* меняет цвет посещённых ссылок на цвет родительского элемента */
+    text-decoration: none; /* убирает подчеркивание, если нужно */
+}
