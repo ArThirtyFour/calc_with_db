@@ -1,11 +1,10 @@
-import sqlite3
+from api_site import add_result , get_results
 from time import sleep
 
 from flask import Flask, render_template , request , redirect
 app = Flask(__name__)
 
-db = sqlite3.connect('calc.db',check_same_thread=False)
-cursor = db.cursor()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -17,17 +16,15 @@ def index():
         second_num = request.form.get('second_num')
         action = request.form.get('action')
         try:
-            res = eval(first_num+action+second_num)
+            add_result(first_num,second_num,action)
         except:
-            res = 'Ошибка ввода!'
-        cursor.execute("INSERT INTO calc VALUES (?,?,?,?)",(first_num,second_num,action,res))
-        db.commit()
+            return 'error'
         return redirect('/')
 
 @app.route('/calc')
 def calc():
-    rows = cursor.execute("SELECT * FROM calc").fetchall() 
-    return render_template('db.html', rows=rows)
+    all_results = get_results()
+    return render_template('db.html',rows=all_results)
 if __name__ == '__main__':
     app.run(debug=True)
  
